@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SoundManager.instance.PlayBGM("title");
+        Cursor.visible = false;
         theData.LoadScore();
         instance = this;
         originPos.position = snake.transform.position;
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
         setScore(0);
     }
 
-   
+
 
     public void setScore(int _score=1)
     {

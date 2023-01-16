@@ -6,6 +6,7 @@ public class appleGenerator : MonoBehaviour
 {
     [SerializeField] GameObject apple;
     List<GameObject> apples = new List<GameObject>();
+    float genRange = 0.9f;
 
     public void _Generator()
     {
@@ -13,8 +14,8 @@ public class appleGenerator : MonoBehaviour
         float screenH = Camera.main.orthographicSize;
         float screenW = screenH * Camera.main.aspect; //종횡비 곱해서 세로값 맞추기
 
-        float appearPosX = Random.Range(-screenW, screenW);
-        float appearPosY = Random.Range(-screenH, screenH);
+        float appearPosX = Random.Range(-screenW* genRange, screenW* genRange);
+        float appearPosY = Random.Range(-screenH* genRange, screenH* genRange);
 
         var _apple= Instantiate(apple, new Vector3(appearPosX, appearPosY, 0), Quaternion.identity);
         apples.Add(_apple);
